@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node.js App</title>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <button id="sendButton">Send Request</button>
+  <p id="responseMessage"></p>
+
+  <script>
+    document.getElementById("sendButton").addEventListener("click", async () => {
+      try {
+        const response = await fetch("/sendRequest");
+        const data = await response.text();
+        document.getElementById("responseMessage").textContent = data;
+      } catch (error) {
+        console.error("Error sending request:", error);
+      }
+    });
+  </script>
+</body>
+</html>
+
